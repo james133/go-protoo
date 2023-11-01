@@ -9,7 +9,7 @@ import (
 	"github.com/go-logr/logr"
 	"github.com/gorilla/websocket"
 	"github.com/jiyeyuran/go-eventemitter"
-	"github.com/jiyeyuran/go-protoo"
+	"github.com/james133/go-protoo"
 )
 
 type WebsocketTransport struct {
