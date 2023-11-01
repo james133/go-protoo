@@ -1,4 +1,4 @@
-module github.com/jiyeyuran/go-protoo
+module github.com/james133/go-protoo
 
 go 1.15
 
