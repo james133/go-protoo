@@ -4,8 +4,7 @@ import (
 	"crypto/tls"
 	"net/http"
 	"time"
-
-	"github.com/james133/event_emitter"
+	"github.com/james133/go-protoo/event_emitter"
 	"github.com/james133/go-protoo/logger"
 	"github.com/james133/go-protoo/transport"
 	"github.com/gorilla/websocket"

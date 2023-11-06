@@ -8,8 +8,8 @@ import (
 
 	"github.com/go-logr/logr"
 	"github.com/gorilla/websocket"
-	"github.com/jiyeyuran/go-eventemitter"
 	"github.com/james133/go-protoo"
+	"github.com/jiyeyuran/go-eventemitter"
 )
 
 type WebsocketTransport struct {
@@ -80,6 +80,11 @@ func (t *WebsocketTransport) Run() error {
 			continue
 		}
 
+		if string(data) == "ping" {
+			t.Send([]byte("pong"))
+			continue
+		}
+		t.logger.Info("recv raw message " + string(data))
 		message := protoo.Message{}
 
 		if err := json.Unmarshal(data, &message); err != nil {
