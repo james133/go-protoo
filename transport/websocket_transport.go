@@ -39,8 +39,10 @@ func (t *WebsocketTransport) Send(message []byte) error {
 	defer t.mu.Unlock()
 	err := t.conn.WriteMessage(websocket.TextMessage, message)
 	if err != nil {
+		t.logger.Error(err, `Send message`, "conn", t.String(), " message=", string(message))
 		t.Close()
 	}
+	t.logger.V(1).Info(`Send message success `, "conn", t.String(), " message=", string(message))
 	return err
 }
 
