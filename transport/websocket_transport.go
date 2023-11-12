@@ -84,11 +84,16 @@ func (t *WebsocketTransport) Run() error {
 			t.Send([]byte("pong"))
 			continue
 		}
-		t.logger.Info("recv raw message " + string(data))
+		if strings.Contains(string(data), "ping") {  
+			
+		} else {  
+			t.logger.Debug("recv raw message " + string(data))
+		}  
+		
 		message := protoo.Message{}
 
 		if err := json.Unmarshal(data, &message); err != nil {
-			t.logger.Error(err, `json unmarshal`, "conn", t.String())
+			t.logger.Error(err, `json unmarshal`, "conn", t.String()," recv raw data = ",string(data))
 			continue
 		}
 
