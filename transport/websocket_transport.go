@@ -90,7 +90,7 @@ func (t *WebsocketTransport) Run() error {
 		if strings.Contains(string(data), "ping") {
 
 		} else {
-			t.logger.Info("recv raw message " + string(data))
+			//t.logger.Info("recv raw message " + string(data))
 		}
 
 		message := protoo.Message{}
